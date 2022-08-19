@@ -462,13 +462,12 @@ BUILD_VARIANTS.push({
   ]
 });
 
-// TODO NODE-3897 - generate combined coverage report
-// BUILD_VARIANTS.push({
-//   name: 'generate-combined-coverage',
-//   display_name: 'Generate Combined Coverage',
-//   run_on: DEFAULT_OS,
-//   tasks: ['download-and-merge-coverage']
-// });
+BUILD_VARIANTS.push({
+  name: 'generate-combined-coverage',
+  display_name: 'Generate Combined Coverage',
+  run_on: DEFAULT_OS,
+  tasks: ['download-and-merge-coverage']
+});
 
 // singleton build variant for mongosh integration tests
 SINGLETON_TASKS.push({
@@ -580,7 +579,6 @@ const oneOffFuncAsTasks = oneOffFuncs.map(oneOffFunc => ({
   });
 });
 
-// TODO NODE-3897 - generate combined coverage report
 const coverageTask = {
   name: 'download and merge coverage'.split(' ').join('-'),
   tags: [],
@@ -592,6 +590,7 @@ const coverageTask = {
   depends_on: [{ name: '*', variant: '*', status: '*', patch_optional: true }]
 };
 
+SINGLETON_TASKS.push(coverageTask);
 SINGLETON_TASKS.push(...oneOffFuncAsTasks);
 
 BUILD_VARIANTS.push({
