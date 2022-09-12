@@ -601,12 +601,7 @@ for (const version of ['5.0', 'rapid', 'latest']) {
             CSFLE_GIT_REF: ref
           }
         },
-        {
-          func: 'run custom csfle tests',
-          vars: {
-            CSFLE_GIT_REF: ref
-          }
-        }
+        { func: 'run custom csfle tests' }
       ]
     });
 
@@ -642,7 +637,7 @@ for (const version of ['5.0', 'rapid', 'latest']) {
           {
             func: 'run custom csfle tests',
             vars: {
-              CSFLE_GIT_REF: ref
+              REFRESH_AWS_CREDENTIALS: true
             }
           }
         ]
