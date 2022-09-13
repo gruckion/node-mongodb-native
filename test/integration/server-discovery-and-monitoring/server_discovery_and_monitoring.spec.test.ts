@@ -19,15 +19,15 @@ const filter: TestFilter = ({ description }) => {
       return isAuthEnabled
         ? 'TODO(NODE-3135): handle auth errors, also see NODE-3891: fix tests broken when AUTH enabled'
         : false;
-    case 'Network error on Monitor check':
-    case 'Network timeout on Monitor check':
-      return 'TODO(NODE-4608): Disallow parallel monitor checks';
+    // case 'Network error on Monitor check':
+    // case 'Network timeout on Monitor check':
+    //   return 'TODO(NODE-4608): Disallow parallel monitor checks';
     default:
       return false;
   }
 };
 
-describe('SDAM Unified Tests', function () {
+describe.only('SDAM Unified Tests', function () {
   afterEach(async function () {
     if (this.currentTest!.pending) {
       return;
@@ -35,8 +35,8 @@ describe('SDAM Unified Tests', function () {
     // TODO(NODE-4573): fix socket leaks
     const LEAKY_TESTS = [
       'Command error on Monitor handshake',
-      'Network error on Monitor check',
-      'Network timeout on Monitor check',
+      // 'Network error on Monitor check',
+      // 'Network timeout on Monitor check',
       'Network error on Monitor handshake',
       'Network timeout on Monitor handshake'
     ];
