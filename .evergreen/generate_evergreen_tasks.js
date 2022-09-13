@@ -621,7 +621,9 @@ for (const version of ['5.0', 'rapid', 'latest']) {
             func: 'bootstrap mongo-orchestration',
             vars: {
               VERSION: version,
-              TOPOLOGY: 'replica_set'
+              TOPOLOGY: 'replica_set',
+              AUTH: 'auth',
+              ORCHESTRATION_FILE: 'auth-aws.json'
             }
           },
           { func: 'add aws auth variables to file' },
