@@ -75,6 +75,10 @@ export abstract class AbstractOperation<TResult = any> {
     this.trySecondaryWrite = false;
   }
 
+  get operationName() {
+    return this.constructor.name;
+  }
+
   abstract execute(
     server: Server,
     session: ClientSession | undefined,
