@@ -30,6 +30,13 @@
     "mongodb-connection-string-url": "^2.5.3",
     "socks": "^2.7.0"
   },
+  "peerDependencies:" {
+    "mongodb-core": "",
+    "bson": "",
+    "kerberos": "",
+    "bson-ext": "",
+    "node-gyp": ""
+  },
   "devDependencies": {
     "@iarna/toml": "^2.2.5",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
